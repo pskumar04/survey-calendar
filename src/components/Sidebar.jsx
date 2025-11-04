@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function Sidebar({ currentView, setCurrentView }) {
+export default function Sidebar({ currentView, setCurrentView, user, onLogin, onLogout }) {
   return (
     <aside className="sidebar">
       <div className="brand">CRMHUB</div>
+
       <nav className="menu">
         <button
           className={`menu-item ${currentView === "calendar" ? "active" : ""}`}
@@ -18,7 +19,21 @@ export default function Sidebar({ currentView, setCurrentView }) {
           Events
         </button>
       </nav>
-      <div className="sidebar-footer">Satish</div>
+
+      <div className="sidebar-footer">
+        {user ? (
+          <>
+            <p>Hello, <strong>{user}</strong></p>
+            <button className="btn small" onClick={onLogout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <button className="btn primary small" onClick={onLogin}>
+            Sign in with Google
+          </button>
+        )}
+      </div>
     </aside>
   );
 }
