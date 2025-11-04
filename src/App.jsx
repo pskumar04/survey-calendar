@@ -21,7 +21,9 @@ export default function App() {
       window.google.accounts.id.initialize({
         client_id: clientId,
         callback: handleCredentialResponse,
+        auto_select: true, // ✅ Automatically sign in if already authorized
       });
+
 
       window.google.accounts.id.renderButton(
         document.getElementById("googleSignInDiv"),
@@ -42,7 +44,11 @@ export default function App() {
       const decoded = JSON.parse(window.atob(base64));
 
       setUser(decoded.name);
-      setUserId(decoded.sub); // unique Google ID
+      setUserId(decoded.sub);
+
+      // ✅ Save user info locally
+      localStorage.setItem("googleUser", JSON.stringify({ name: decoded.name, sub: decoded.sub }));
+
       console.log("Signed in as:", decoded.name);
 
       // Load that user's events
@@ -54,13 +60,16 @@ export default function App() {
     }
   }
 
+
   // ✅ Logout
   function handleLogout() {
     setUser(null);
     setUserId(null);
     setEvents(initialEvents);
+    localStorage.removeItem("googleUser"); // ✅ Remove saved user info
     window.google.accounts.id.disableAutoSelect();
   }
+
 
   // ✅ Save user-specific events
   useEffect(() => {
@@ -68,6 +77,20 @@ export default function App() {
       localStorage.setItem(`calendarEvents_${userId}`, JSON.stringify(events));
     }
   }, [events, userId]);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem("googleUser");
+    if (savedUser) {
+      const parsed = JSON.parse(savedUser);
+      setUser(parsed.name);
+      setUserId(parsed.sub);
+
+      const storedEvents = localStorage.getItem(`calendarEvents_${parsed.sub}`);
+      if (storedEvents) setEvents(JSON.parse(storedEvents));
+      else setEvents(initialEvents);
+    }
+  }, []);
+
 
   // ✅ Add & delete events
   function addEvent(newEvent) {
