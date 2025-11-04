@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/survey-calendar/static/css/main.0bd94b75.css",
+    "main.js": "/survey-calendar/static/js/main.8b1cc47c.js",
+    "index.html": "/survey-calendar/index.html",
+    "main.0bd94b75.css.map": "/survey-calendar/static/css/main.0bd94b75.css.map",
+    "main.8b1cc47c.js.map": "/survey-calendar/static/js/main.8b1cc47c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0bd94b75.css",
+    "static/js/main.8b1cc47c.js"
+  ]
+}
