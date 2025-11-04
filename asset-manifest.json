@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/survey-calendar/static/css/main.0bd94b75.css",
-    "main.js": "/survey-calendar/static/js/main.a4bde2d5.js",
+    "main.js": "/survey-calendar/static/js/main.fc9b8557.js",
     "index.html": "/survey-calendar/index.html",
     "main.0bd94b75.css.map": "/survey-calendar/static/css/main.0bd94b75.css.map",
-    "main.a4bde2d5.js.map": "/survey-calendar/static/js/main.a4bde2d5.js.map"
+    "main.fc9b8557.js.map": "/survey-calendar/static/js/main.fc9b8557.js.map"
   },
   "entrypoints": [
     "static/css/main.0bd94b75.css",
-    "static/js/main.a4bde2d5.js"
+    "static/js/main.fc9b8557.js"
   ]
 }
