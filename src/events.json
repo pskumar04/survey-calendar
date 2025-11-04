@@ -1,0 +1,30 @@
+[
+  {
+    "id": "e1",
+    "title": "Team Sync",
+    "date": "2025-11-04",
+    "time": "11:00",
+    "color": "#FFAB91"
+  },
+  {
+    "id": "e2",
+    "title": "Client Call",
+    "date": "2025-11-04",
+    "time": "14:00",
+    "color": "#A5D6A7"
+  },
+  {
+    "id": "e3",
+    "title": "Design Review",
+    "date": "2025-11-10",
+    "time": "09:30",
+    "color": "#90CAF9"
+  },
+  {
+    "id": "e4",
+    "title": "Sprint Planning",
+    "date": "2025-11-17",
+    "time": "10:00",
+    "color": "#F48FB1"
+  }
+]

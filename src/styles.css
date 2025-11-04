@@ -1,0 +1,181 @@
+:root{
+  --bg:#f4f6f8;
+  --muted:#c7cdd1;
+  --card:#ffffff;
+  --accent:#5567ff;
+  --text:#1f2937;
+}
+
+*{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+
+html,body,#root{height:100%;margin:0;background:var(--bg);color:var(--text)}
+
+.app-root{
+  display:flex;
+  min-height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+  width:220px;
+  background:linear-gradient(180deg,#ffffff 0%, #fbfcfd 100%);
+  border-right:1px solid #e7eaee;
+  padding:28px 16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.brand{font-weight:700;color:var(--accent);font-size:18px;margin-bottom:18px}
+.menu{display:flex;flex-direction:column;gap:8px}
+.menu-item{
+  text-align:left;
+  border:none;background:none;padding:10px;border-radius:8px;cursor:pointer;color:#374151;font-weight:600;
+}
+.menu-item.active{background:#f1f5ff;color:var(--accent)}
+
+/* Main */
+.main-content{flex:1;padding:24px;display:flex;flex-direction:column}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.app-title{font-size:20px;margin:0}
+.btn{padding:8px 12px;border-radius:8px;border:1px solid #e2e8f0;background:transparent;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff;border:none}
+
+/* Calendar Card */
+.calendar-wrap{background:var(--card);padding:20px;border-radius:10px;box-shadow:0 6px 18px rgba(19,22,27,0.06);}
+
+.calendar-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.month-controls{display:flex;align-items:center;gap:12px}
+.icon-btn{border:none;background:#fff;padding:8px;border-radius:8px;box-shadow:0 1px 3px rgba(2,6,23,0.06);cursor:pointer}
+.month-title .big{font-weight:700}
+.month-title .sub{font-size:12px;color:#6b7280}
+
+/* Weekdays */
+.weekdays{display:grid;grid-template-columns:repeat(7,1fr);padding:8px 0;border-bottom:1px solid #f1f5f9;margin-bottom:8px}
+.weekday{font-size:12px;color:#6b7280;text-align:left;padding-left:8px}
+
+/* Grid */
+.calendar-grid{display:flex;flex-direction:column;gap:8px}
+.week-row{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day-cell{
+  min-height:110px;border-radius:8px;padding:8px;background:#fff;border:1px solid #f3f4f6;display:flex;flex-direction:column;
+}
+.day-cell.muted{opacity:0.45}
+.date-top{font-weight:600;margin-bottom:6px}
+.date-top.today{background:var(--accent);color:#fff;padding:4px 8px;border-radius:6px;font-size:12px;display:inline-block}
+
+/* Events */
+.events-list{display:flex;flex-direction:column;gap:6px;margin-top:6px;flex:1}
+.event-pill{display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.03);padding:6px;border-radius:6px;font-size:12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.event-pill .dot{width:10px;height:10px;border-radius:50%}
+.event-pill .ev-title{flex:1;overflow:hidden;text-overflow:ellipsis}
+
+.more-count{font-size:12px;color:#6b7280;padding-top:6px}
+
+/* Responsive */
+@media (max-width:900px){
+  .sidebar{display:none}
+  .day-cell{min-height:90px}
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.modal {
+  background: #fff;
+  padding: 24px;
+  border-radius: 10px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.modal input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Selected date highlight */
+.day-cell.selected {
+  background: #e1e6ff;
+  border: 2px solid #5567ff;
+}
+
+/* Events Page */
+.events-page {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(19,22,27,0.06);
+}
+.event-list {
+  list-style: none;
+  padding: 0;
+}
+.event-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Danger button */
+.btn.danger {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+}
+
+/* Events Page */
+.events-page {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(19, 22, 27, 0.06);
+}
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 16px;
+}
+.event-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.event-item:last-child {
+  border-bottom: none;
+}
+.event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.event-date {
+  font-size: 13px;
+  color: #6b7280;
+}
+.delete-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ef4444;
+  transition: 0.2s ease;
+}
+.delete-btn:hover {
+  transform: scale(1.2);
+}
